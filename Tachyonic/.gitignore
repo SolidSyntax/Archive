@@ -1,0 +1,9 @@
+# IDE files
+
+# OS files
+
+# Properties
+*.yml
+
+# Work directory
+unversioned/

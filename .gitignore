@@ -1,2 +1,8 @@
 #OS Files
 .DS_Store
+
+#Build files
+.gradle
+**/build/
+**/out/
+
