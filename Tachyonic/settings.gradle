@@ -1,0 +1,2 @@
+include "discovery-eureka"
+include "backend"

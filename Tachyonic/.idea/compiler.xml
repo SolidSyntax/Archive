@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="backend_main" target="1.8" />
+      <module name="backend_test" target="1.8" />
+      <module name="discovery-eureka_main" target="1.9" />
+      <module name="discovery-eureka_test" target="1.9" />
+      <module name="Discovery_main" target="1.9" />
+      <module name="Discovery_test" target="1.9" />
+      <module name="Tachyonic_main" target="1.9" />
+      <module name="Tachyonic_test" target="1.9" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
