@@ -1,0 +1,16 @@
+group 'be.solidsyntax'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.9
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'xalan', name: 'xalan', version: '2.7.2'
+    compile group: 'com.ximpleware', name: 'vtd-xml', version: '2.11'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
