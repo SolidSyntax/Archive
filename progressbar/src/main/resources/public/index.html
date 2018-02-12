@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Progress Bar</title>
+    <link rel="stylesheet" href="lib/bulma.min.css">
+    <link rel="stylesheet" href="app.css">
+    <script defer src="lib/fontawesome.js"></script>
+    <script defer src="app.js"></script>
+</head>
+<body>
+<section class="section">
+    <div class="container">
+        
+        <h1 class="title">
+            Proggress Bar
+        </h1>
+        
+        <div class="progress-container">
+            <progress id="progressbar" class="progress is-info" value="0" max="1000"></progress>
+            <a class="button is-primary" onclick="tickEvents()">Start</a>
+            <a class="button is-danger" onclick="reset()">Reset</a>
+        </div>
+    </div>
+</section>
+</body>
+</html>
