@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
     - name: client
-      image: hansmaes/multi-client
+      image: hansmaes/multi-worker
       ports:
         - containerPort: 3000
