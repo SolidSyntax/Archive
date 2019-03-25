@@ -1,0 +1,4 @@
+# Configure docker cli to use minikube
+eval $(minikube docker-env)
+
+
