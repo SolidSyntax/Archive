@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {concat, fromEvent, interval, noop, Observable, of, timer} from 'rxjs';
+import {concat, fromEvent, interval, merge, noop, Observable, of, timer} from 'rxjs';
 import {error} from '@angular/compiler/src/util';
 import {createHttpObservable} from '../common/util';
 import {map} from 'rxjs/operators';
@@ -60,7 +60,7 @@ export class AboutComponent implements OnInit {
 
   }
 
-  mapOpperator() {
+  mapOperator() {
     createHttpObservable('/api/courses')
       .pipe(
         map(res => Object.values(res['payload']))
@@ -84,6 +84,15 @@ export class AboutComponent implements OnInit {
     // source2$ & source3$ are never activated because interval$ never completes
     const neverCompletes$ = concat(source1$, interval$, source2$, source3$);
     neverCompletes$.subscribe(console.log);
+  }
+
+  mergeOperator() {
+    const interval1$ = interval(1000);
+    const interval2$ = interval1$.pipe(map(val => val * 10));
+
+    const result$ = merge(interval1$, interval2$);
+
+    result$.subscribe(console.log);
   }
 
 }
