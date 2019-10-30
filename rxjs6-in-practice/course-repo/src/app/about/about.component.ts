@@ -1,6 +1,5 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {concat, fromEvent, interval, merge, noop, Observable, of, timer} from 'rxjs';
-import {error} from '@angular/compiler/src/util';
 import {createHttpObservable} from '../common/util';
 import {map} from 'rxjs/operators';
 
@@ -93,6 +92,13 @@ export class AboutComponent implements OnInit {
     const result$ = merge(interval1$, interval2$);
 
     result$.subscribe(console.log);
+  }
+
+  cancelation() {
+    const http$ = createHttpObservable('/api/courses');
+    const subscription = http$.subscribe();
+    setTimeout(() => subscription.unsubscribe(), 0);
+
   }
 
 }
