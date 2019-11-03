@@ -94,4 +94,11 @@ export class AboutComponent implements OnInit {
     result$.subscribe(console.log);
   }
 
+  cancelation() {
+    const http$ = createHttpObservable('/api/courses');
+    const subscription = http$.subscribe();
+    setTimeout(() => subscription.unsubscribe(), 0);
+
+  }
+
 }
