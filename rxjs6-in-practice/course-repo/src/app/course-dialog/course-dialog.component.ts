@@ -3,7 +3,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {Course} from '../model/course';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import * as moment from 'moment';
-import {concatMap, filter} from 'rxjs/operators';
+import {concatMap, filter, mergeMap} from 'rxjs/operators';
 import {fromPromise} from 'rxjs/internal-compatibility';
 
 @Component({
@@ -82,7 +82,16 @@ export class CourseDialogComponent implements OnInit, AfterViewInit {
   }
 
   private withMergeMap() {
-    console.log('Todo');
+    /*
+      https://rxjs-dev.firebaseapp.com/api/operators/mergeMap
+      Multiple save calls in parallel, use only if the order is not important.
+     */
+    this.form.valueChanges
+      .pipe(
+        filter(() => this.form.valid),
+        mergeMap(changes => this.saveCourse(changes))
+      )
+      .subscribe();
   }
 
 

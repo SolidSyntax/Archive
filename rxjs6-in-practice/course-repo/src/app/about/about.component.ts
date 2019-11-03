@@ -1,6 +1,5 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {concat, fromEvent, interval, merge, noop, Observable, of, timer} from 'rxjs';
-import {error} from '@angular/compiler/src/util';
 import {createHttpObservable} from '../common/util';
 import {map} from 'rxjs/operators';
 
