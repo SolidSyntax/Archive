@@ -1,10 +1,11 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Course} from '../model/course';
-import {concat, fromEvent, Observable, of} from 'rxjs';
+import {forkJoin, fromEvent, Observable} from 'rxjs';
 import {Lesson} from '../model/lesson';
 import {createHttpObservable} from '../common/util';
-import {debounceTime, distinctUntilChanged, map, switchMap} from 'rxjs/operators';
+import {debounceTime, distinctUntilChanged, map, startWith, switchMap, tap} from 'rxjs/operators';
+import {debug, RxJsLoggingLevel, setRxJsLoggingLevel} from '../common/debug';
 
 
 @Component({
@@ -31,24 +32,44 @@ export class CourseComponent implements OnInit, AfterViewInit {
 
     this.course$ = createHttpObservable(`/api/courses/${this.courseId}`) as Observable<Course>;
 
+    const lessons$ = this.loadLessons();
+
+    forkJoin(this.course$, lessons$)
+      .pipe(
+        tap(([course, lessons]) => {
+          console.log('course ', course);
+          console.log('lessons ', lessons);
+        })
+      )
+      .subscribe();
   }
 
 
   ngAfterViewInit() {
+    setRxJsLoggingLevel(RxJsLoggingLevel.DEBUG);
+
     /**
      * https://rxjs-dev.firebaseapp.com/api/operators/switchMap
      * when a new inner observable arrives cancel the current running inner observable
      */
     const searchLessons$ = fromEvent<any>(this.input.nativeElement, 'keyup')
       .pipe(
-        debounceTime(200),
         map(event => event.target.value),
+        startWith(''),
+        tap(search => console.log('search: ', search)),
+        debug(RxJsLoggingLevel.TRACE, 'search '),
+        debounceTime(200),
         distinctUntilChanged(),
+        debug(RxJsLoggingLevel.DEBUG, 'search '),
         switchMap(searchTerm => this.loadLessons(searchTerm))
       );
 
-    const initialLessons$ = this.loadLessons();
-    this.lessons$ = concat(initialLessons$, searchLessons$);
+    // Merge initial lessons with 'key event' lessons
+    // replaced with the 'startWith opperator' above
+    // const initialLessons$ = this.loadLessons();
+    // this.lessons$ = concat(initialLessons$, searchLessons$);
+
+    this.lessons$ = searchLessons$;
   }
 
   private loadLessons(searchTerm = ''): Observable<Lesson[]> {
