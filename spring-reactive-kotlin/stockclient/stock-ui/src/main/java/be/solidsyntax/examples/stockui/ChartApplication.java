@@ -10,18 +10,18 @@ public class ChartApplication extends javafx.application.Application {
     private ConfigurableApplicationContext applicationContext;
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         applicationContext.publishEvent(new StageReadyEvent(stage));
     }
 
     @Override
-    public void init() throws Exception {
+    public void init() {
         applicationContext = new SpringApplicationBuilder((StockUiApplication.class)).run();
     }
 
     @Override
-    public void stop() throws Exception {
-        applicationContext.close();;
+    public void stop() {
+        applicationContext.close();
         Platform.exit();
     }
 

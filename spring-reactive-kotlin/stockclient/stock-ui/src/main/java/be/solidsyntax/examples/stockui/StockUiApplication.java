@@ -1,14 +1,13 @@
 package be.solidsyntax.examples.stockui;
 
-import org.springframework.boot.SpringApplication;
+import javafx.application.Application;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class StockUiApplication {
 
     public static void main(String[] args) {
-
-        SpringApplication.run(ChartApplication.class, args);
+        Application.launch(ChartApplication.class, args);
     }
 
 }
