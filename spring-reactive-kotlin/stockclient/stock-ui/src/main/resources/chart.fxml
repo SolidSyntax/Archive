@@ -7,7 +7,7 @@
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="be.solidsyntax.examples.stockui.ChartController">
-    <LineChart prefHeight="600" fx:id="chart">
+    <LineChart prefHeight="1000" fx:id="chart">
         <xAxis>
             <CategoryAxis label="Time"/>
         </xAxis>
