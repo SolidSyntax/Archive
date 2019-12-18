@@ -7,12 +7,14 @@ import reactor.core.publisher.Flux;
 import java.time.Duration;
 
 @Log4j2
-public class WebClientStockClient {
+public class WebClientStockClient implements StockClient{
     private WebClient webClient;
 
     public WebClientStockClient(WebClient webClient) {
         this.webClient = webClient;
     }
+
+    @Override
     public Flux<StockPrice> pricesFor(String symbol) {
         return webClient
                 .get()
