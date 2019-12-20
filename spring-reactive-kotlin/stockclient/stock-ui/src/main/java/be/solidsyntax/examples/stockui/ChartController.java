@@ -1,13 +1,11 @@
 package be.solidsyntax.examples.stockui;
 
+import be.solidsyntax.examples.stockclient.StockClient;
 import be.solidsyntax.examples.stockclient.StockPrice;
-import be.solidsyntax.examples.stockclient.WebClientStockClient;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
-import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Data;
 import javafx.scene.chart.XYChart.Series;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +23,11 @@ public class ChartController {
     private LineChart<String, Double> chart;
     private ObservableList<Data<String, Double>> seriesData = observableArrayList();
 
-    private WebClientStockClient webClientStockClient;
+    private StockClient stockClient;
 
     @Autowired
-    public ChartController(WebClientStockClient webClientStockClient) {
-        this.webClientStockClient = webClientStockClient;
+    public ChartController(StockClient stockClient) {
+        this.stockClient = stockClient;
     }
 
     @FXML
@@ -46,7 +44,7 @@ public class ChartController {
     private void subscribeForPricesWith(String symbol, ObservableList<Series<String, Double>> data) {
         PriceSubscriber priceSubscriber = new PriceSubscriber(symbol);
         data.add(priceSubscriber.getSeries());
-        webClientStockClient.pricesFor(symbol).subscribe(priceSubscriber);
+        stockClient.pricesFor(symbol).subscribe(priceSubscriber);
     }
 
     private static class PriceSubscriber implements Consumer<StockPrice> {
