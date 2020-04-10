@@ -1,0 +1,53 @@
+query findUsersForCompany{
+    company(id:"1") {
+        name,
+            description,
+            users{
+            firstName
+        }
+    }
+}
+
+
+query multipleCompanies{
+    company1: company(id:"1") {
+        name,
+            description,
+            users{
+            firstName
+        }
+    },
+    company2: company(id:"2") {
+            name,
+                description,
+                users{
+                firstName
+            }
+        }
+}
+
+fragment companyResult on Company{
+        name,
+        description,
+        users {
+            firstName
+        }
+}
+
+query queryWithFragments{
+    company1: company(id:"1") {
+        ...companyResult
+    },
+    company2: company(id:"2") {
+        ...companyResult
+    }
+}
+
+
+mutation{
+  addUser(firstName: "Dave", age: 28){
+    id,
+    firstName,
+    age
+  }
+}
