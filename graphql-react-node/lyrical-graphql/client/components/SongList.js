@@ -5,6 +5,7 @@ import {useQuery} from "@apollo/react-hooks";
 const GET_SONGS = gql`
 {
   songs{
+    id,
     title
   }
 }
@@ -17,13 +18,19 @@ function SongList() {
     if (loading) return 'Loading...';
     if (error) return `Error! ${error.message}`;
 
+    const renderSongs = () => {
+        return (
+            data.songs.map(song => (
+                <li key={song.id}>
+                    {song.title}
+                </li>
+            ))
+        )
+    }
+
     return (
         <div>
-            {data.songs.map(song => (
-                <div key={song.title}>
-                    {song.title}
-                </div>
-            ))}
+            {renderSongs()}
         </div>
     );
 }
