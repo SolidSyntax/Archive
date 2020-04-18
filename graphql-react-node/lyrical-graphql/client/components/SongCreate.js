@@ -1,23 +1,32 @@
 import React, { useState } from 'react';
 import gql from 'graphql-tag';
-import {useQuery} from "@apollo/react-hooks";
-// https://www.apollographql.com/docs/react/data/queries/#executing-a-query
-const GET_SONGS = gql`
-{
-  songs{
-    id,
+import {useMutation, useQuery} from "@apollo/react-hooks";
+// https://www.apollographql.com/docs/react/data/mutations/
+const CREATE_SONG = gql`
+mutation AddSong($title: String){
+  addSong(title: $title){
+    id
     title
   }
 }
 `;
 
 
+
 function SongCreate() {
     const [title, setTitle] = useState('');
+    const [createSong, {createSongStataus}] = useMutation(CREATE_SONG);
+
+    const onSubmit = (event) => {
+        event.preventDefault();
+        createSong({variables: {title: title}});
+        setTitle('');
+    }
+
     return (
         <div>
             <h3>Create a New Song</h3>
-            <form>
+            <form onSubmit={onSubmit}>
                 <fieldset>
                     <legend>Song</legend>
 

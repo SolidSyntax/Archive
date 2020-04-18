@@ -5,7 +5,7 @@ import {useQuery} from "@apollo/react-hooks";
 const GET_SONGS = gql`
 {
   songs{
-    id,
+    id
     title
   }
 }
