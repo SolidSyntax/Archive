@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import gql from 'graphql-tag';
-import {useMutation, useQuery} from "@apollo/react-hooks";
+import {useMutation} from "@apollo/react-hooks";
+import {hashHistory, Link} from "react-router";
+import GET_SONGS from "../queries/fetchSongs";
 // https://www.apollographql.com/docs/react/data/mutations/
 const CREATE_SONG = gql`
 mutation AddSong($title: String){
@@ -12,15 +14,23 @@ mutation AddSong($title: String){
 `;
 
 
-
 function SongCreate() {
     const [title, setTitle] = useState('');
-    const [createSong, {createSongStataus}] = useMutation(CREATE_SONG);
+    const [createSong] = useMutation(CREATE_SONG,
+        {
+            update(cache, {data: {addSong}}) { // does not seem to work
+                const {songs} = cache.readQuery({query: GET_SONGS});
+                cache.writeQuery({
+                    query: GET_SONGS,
+                    data: {songs: songs.concat([addSong])},
+                });
+            }
+        });
 
     const onSubmit = (event) => {
         event.preventDefault();
-        createSong({variables: {title: title}});
-        setTitle('');
+        createSong({variables: {title: title}})
+            .then(() => hashHistory.push(('/')));
     }
 
     return (
@@ -39,6 +49,9 @@ function SongCreate() {
                 </fieldset>
 
             </form>
+            <Link to="/">
+                Back
+            </Link>
         </div>
     );
 }
