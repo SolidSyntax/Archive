@@ -15,17 +15,22 @@ mutation DeleteSong($id: ID){
 `;
 
 function SongList() {
-    const {loading, error, data} = useQuery(GET_SONGS);
+    const {loading, error, data, refetch} = useQuery(GET_SONGS);
     const [deleteSong] = useMutation(DELETE_SONG);
 
     if (loading) return 'Loading...';
     if (error) return `Error! ${error.message}`;
 
+    const deleteAndRefresh = id => {
+        deleteSong({variables: {id}});
+        refetch();
+    }
+
     const renderSongs = () => {
         return (
             data.songs.map(({id,title})=> (
                 <li key={id}>
-                    <button onClick={() => deleteSong({variables: {id}})}>Delete</button>
+                    <button onClick={() => deleteAndRefresh(id)}>Delete</button>
                     <span>{title}</span>
                 </li>
             ))
