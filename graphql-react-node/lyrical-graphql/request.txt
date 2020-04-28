@@ -1,0 +1,185 @@
+== Info:   Trying 104.17.121.18:443...
+== Info: TCP_NODELAY set
+== Info: Connected to aclvb.slgnt.eu (104.17.121.18) port 443 (#0)
+== Info: ALPN, offering http/1.1
+== Info: successfully set certificate verify locations:
+== Info:   CAfile: C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
+  CApath: none
+=> Send SSL data, 5 bytes (0x5)
+0000: .....
+== Info: TLSv1.3 (OUT), TLS handshake, Client hello (1):
+=> Send SSL data, 512 bytes (0x200)
+0000: ......O.*.........}'...S...zS...M.'.:. .yO.....7..@...M!..gR...;
+0040: ~..,3...>.......,.0.........+./...$.(.k.#.'.g.....9.....3.....=.
+0080: <.5./.....u.........aclvb.slgnt.eu........................3t....
+00c0: .....http/1.1.........1.....0...................................
+0100: ..............+............-.....3.&.$... t..j...d].3.91..s..).)
+0140: ...@.H...(......................................................
+0180: ................................................................
+01c0: ................................................................
+<= Recv SSL data, 5 bytes (0x5)
+0000: ....n
+== Info: TLSv1.3 (IN), TLS handshake, Server hello (2):
+<= Recv SSL data, 110 bytes (0x6e)
+0000: ...j..^..:!2.E.......5...........;.... .0..Sz..I.<_._g..f......`
+0040: ".........."..........................http/1.1
+<= Recv SSL data, 5 bytes (0x5)
+0000: ....?
+== Info: TLSv1.2 (IN), TLS handshake, Certificate (11):
+<= Recv SSL data, 2879 bytes (0xb3f)
+0000: ...;..8...0...0..~........`.:4...:......]0...*.H........0M1.0...
+0040: U....US1.0...U....DigiCert Inc1'0%..U....DigiCert SHA2 Secure Se
+0080: rver CA0...191018000000Z..210922120000Z0b1.0...U....BE1.0...U...
+00c0: .Braine L'Alleud1.0...U....Selligent SA1.0...U....SaaS1.0...U...
+0100: .*.slgnt.eu0.."0...*.H.............0...........+..zNm.d..l4..p..
+0140: .v<.....hZ.N......_...&....l6..8Uh......Qksp.....B.?..o.........
+0180: #......>...B........<.3..q...ke..o.<_........._..Q.$.DWoXj'K...
+01c0: rl.OV..dU...A....k$S.8..j.......Aw+.\2Ce~6....3)z=....tW..N..X>.
+0200: A..:.N..4 Q....|.......D,.z4.<..r....r6)...Q........[0..W0...U.#
+0240: ..0.....a..1a./(..F8.,....0...U........,V}.k..'*.UkRM....0...U..
+0280: ..0...*.slgnt.eu..slgnt.eu0...U...........0...U.%..0...+........
+02c0: .+.......0k..U...d0b0/.-.+.)http://crl3.digicert.com/ssca-sha2-g
+0300: 6.crl0/.-.+.)http://crl4.digicert.com/ssca-sha2-g6.crl0L..U. .E0
+0340: C07..`.H...l..0*0(..+.........https://www.digicert.com/CPS0...g.
+0380: ....0|..+........p0n0$..+.....0...http://ocsp.digicert.com0F..+.
+03c0: ....0..:http://cacerts.digicert.com/DigiCertSHA2SecureServerCA.c
+0400: rt0...U.......0.0..|..+.....y......l...h.f.u.......q...#...{G8W.
+0440: ..R....d6.......m...g.....F0D. .\G.....?L....BCp.....X...~.{h.".
+0480:  ...f..<X..:o....Y...t.{L_..G./...v..u..Y|..C._..n.V.GV6.J.`....
+04c0: ^......m...(.....G0E.!....#.rH.G.Iz7[2$tz.:..:U.>rN8i... *.-.n.D
+0500: x6...y..iw.t.d......LD'e..u.D.e......@....(.......1.?.3........m
+0540: ...<.....F0D. .`.......|.H......7M..M.E..H(.... zgw.......nI....
+0580: +....iDYn.....!.0...*.H..................]%.;..<p...7..M..,@}..f
+05c0: ...\.&}Sp.2....-....U..Ww.i}.%.[..v}..#:..+2".+.IE...e./.>=0..:
+0600: ..]..X}wv...;.Mr....R..mX&.~.7.iS......I..,WK..1.y....&.....u.s.
+0640: .#...[\..o.[.Q..ss........>Sx>..hd.!..Qt..\.....oBFg...r-?.@.2|5
+0680: ...mL..#.-0.!..A....C|...zn.p.....#s...0...0..|...........n.u..C
+06c0: .rK...0...*.H........0a1.0...U....US1.0...U....DigiCert Inc1.0..
+0700: .U....www.digicert.com1 0...U....DigiCert Global Root CA0...1303
+0740: 08120000Z..230308120000Z0M1.0...U....US1.0...U....DigiCert Inc1'
+0780: 0%..U....DigiCert SHA2 Secure Server CA0.."0...*.H.............0
+07c0: ..........X.M..0..5[n<...,\....qC.d%.....M.f..sn..6.d.7...A.....
+0800: ..sM.3.....S.+..uH-.V7{.12.......]K.GF.*....y.....j.;......eN...
+0840: .z..\~U1..9..../..j..._.WtS;5....D.........k).D.KX.m.K...s...H..
+0880: Eu..71....T.;..?9^...\~...A..EfG..e...).N.......r.0......w..[(W.
+08c0: .....EX.........Z0..V0...U.......0.......0...U...........04..+..
+0900: ......(0&0$..+.....0...http://ocsp.digicert.com0{..U...t0r07.5.3
+0940: .1http://crl3.digicert.com/DigiCertGlobalRootCA.crl07.5.3.1http:
+0980: //crl4.digicert.com/DigiCertGlobalRootCA.crl0=..U. .60402..U. .0
+09c0: *0(..+.........https://www.digicert.com/CPS0...U........a..1a./(
+0a00: ..F8.,....0...U.#..0.....P5V.L.f........=.U0...*.H.............#
+0a40: >.K.1B..~B\.D.i.h.]K..!lK.m......S...*e.9O...n\..$&.........MJ..
+0a80: B.x....m.!.S6`Lv..8..Q......M'd...>q.H..3m..........\L@.....q..G
+0ac0: .....7B. ..n.....}.Y....o-...._&.,.~.7...9......4..!h..s..2.8%.U
+0b00: ....h...A4.|.P..:.........X%..w.-n.R..t..I..;.4(.x.......m..\2.
+<= Recv SSL data, 5 bytes (0x5)
+0000: ....,
+== Info: TLSv1.2 (IN), TLS handshake, Server key exchange (12):
+<= Recv SSL data, 300 bytes (0x12c)
+0000: ...(... ..............p...Iz.H..,.)y.QE,.....M.....$W.Q.$&n.w]t.
+0040: ...-.E..8?.{.W .u9..i....n..[......w.....8%.c..@&.GwzN.t6E...>[g
+0080: ...1..Y.......M<.......,U.......QJ....L....[Us6Ah.v.`.Sy..s..Vj.
+00c0: .0.../Og.j...P...8.=......x..4w.......Qx....`75.w{O......Uv;j.{
+0100: .J.@#..{.......Zx.'.j..U......l.w..ou.aX.W\.
+<= Recv SSL data, 5 bytes (0x5)
+0000: .....
+== Info: TLSv1.2 (IN), TLS handshake, Server finished (14):
+<= Recv SSL data, 4 bytes (0x4)
+0000: ....
+=> Send SSL data, 5 bytes (0x5)
+0000: ....%
+== Info: TLSv1.2 (OUT), TLS handshake, Client key exchange (16):
+=> Send SSL data, 37 bytes (0x25)
+0000: ...! ...J./.%Y....w.Y..G./..k[..n/.u
+=> Send SSL data, 5 bytes (0x5)
+0000: .....
+== Info: TLSv1.2 (OUT), TLS change cipher, Change cipher spec (1):
+=> Send SSL data, 1 bytes (0x1)
+0000: .
+=> Send SSL data, 5 bytes (0x5)
+0000: .... 
+== Info: TLSv1.2 (OUT), TLS handshake, Finished (20):
+=> Send SSL data, 16 bytes (0x10)
+0000: .......e....}2P.
+<= Recv SSL data, 5 bytes (0x5)
+0000: .....
+<= Recv SSL data, 5 bytes (0x5)
+0000: .... 
+== Info: TLSv1.2 (IN), TLS handshake, Finished (20):
+<= Recv SSL data, 16 bytes (0x10)
+0000: ........=....}..
+== Info: SSL connection using TLSv1.2 / ECDHE-RSA-CHACHA20-POLY1305
+== Info: ALPN, server accepted to use http/1.1
+== Info: Server certificate:
+== Info:  subject: C=BE; L=Braine L'Alleud; O=Selligent SA; OU=SaaS; CN=*.slgnt.eu
+== Info:  start date: Oct 18 00:00:00 2019 GMT
+== Info:  expire date: Sep 22 12:00:00 2021 GMT
+== Info:  subjectAltName: host "aclvb.slgnt.eu" matched cert's "*.slgnt.eu"
+== Info:  issuer: C=US; O=DigiCert Inc; CN=DigiCert SHA2 Secure Server CA
+== Info:  SSL certificate verify ok.
+=> Send SSL data, 5 bytes (0x5)
+0000: .....
+=> Send header, 376 bytes (0x178)
+0000: POST /Portal/Api/organizations/aclvb-cgslb-acceptance/journeys/c
+0040: ustom/new_sms_event/entrypoints/new_record/trigger HTTP/1.1
+007d: Host: aclvb.slgnt.eu
+0093: User-Agent: Apache-HttpClient/4.5.12 (Java/12)
+00c3: Content-Type: application/json
+00e3: Accept: application/json
+00fd: X-ApiKey: yHR9DrRV8N93whnhGd2wbFimdfKKrcUkF8tub2YhL0o=:Z9a+nRT0s
+013d: qywklPIhbwdMaCFBBRe4fNGPtB3tA0/6C8=
+0162: Content-Length: 89
+0176: 
+=> Send data, 89 bytes (0x59)
+0000:  {"parameter_values":{"REFERTEMAAND":"04/2020","LIDNUMMER":"2011
+0040: 2003","BEDRAG":"456.89"}}
+== Info: upload completely sent off: 89 out of 89 bytes
+<= Recv SSL data, 5 bytes (0x5)
+0000: .....
+== Info: Mark bundle as not supporting multiuse
+<= Recv header, 17 bytes (0x11)
+0000: HTTP/1.1 200 OK
+<= Recv header, 37 bytes (0x25)
+0000: Date: Thu, 23 Apr 2020 12:42:35 GMT
+<= Recv header, 47 bytes (0x2f)
+0000: Content-Type: application/json; charset=utf-8
+<= Recv header, 21 bytes (0x15)
+0000: Content-Length: 185
+<= Recv header, 24 bytes (0x18)
+0000: Connection: keep-alive
+<= Recv header, 161 bytes (0xa1)
+0000: Set-Cookie: __cfduid=de4554f7b3fef27667e3cfa3ed3af988b1587645754
+0040: ; expires=Sat, 23-May-20 12:42:34 GMT; path=/; domain=.slgnt.eu;
+0080:  HttpOnly; SameSite=Lax; Secure
+<= Recv header, 25 bytes (0x19)
+0000: Cache-Control: no-cache
+<= Recv header, 18 bytes (0x12)
+0000: Pragma: no-cache
+<= Recv header, 13 bytes (0xd)
+0000: Expires: -1
+<= Recv header, 68 bytes (0x44)
+0000: Request-Context: appId=cid-v1:f994e097-b711-4e66-870c-2693360c84
+0040: b1
+<= Recv header, 48 bytes (0x30)
+0000: Access-Control-Expose-Headers: Request-Context
+<= Recv header, 26 bytes (0x1a)
+0000: CF-Cache-Status: DYNAMIC
+<= Recv header, 100 bytes (0x64)
+0000: Expect-CT: max-age=604800, report-uri="https://report-uri.cloudf
+0040: lare.com/cdn-cgi/beacon/expect-ct"
+<= Recv header, 20 bytes (0x14)
+0000: Server: cloudflare
+<= Recv header, 30 bytes (0x1e)
+0000: CF-RAY: 5887aa4f4c35d48c-BRU
+<= Recv header, 49 bytes (0x31)
+0000: cf-request-id: 0248a8c5890000d48c2fa97200000001
+<= Recv header, 2 bytes (0x2)
+0000: 
+<= Recv data, 185 bytes (0xb9)
+0000: {
+0003:   "result_code": "Succeeded",
+0022:   "result_type": "Content",
+003f:   "body": "{\r\n \"status\":\"success\",\r\n \"message\": \"even
+007f: t data saved\",\r\n \"selligent_user_id\": 193439\r\n}"
+00b8: }
+== Info: Connection #0 to host aclvb.slgnt.eu left intact

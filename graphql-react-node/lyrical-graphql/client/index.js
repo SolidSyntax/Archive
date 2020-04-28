@@ -7,10 +7,16 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import {hashHistory, Router, Route, IndexRoute} from 'react-router';
 import SongCreate from "./components/SongCreate";
 import SongDetail from "./components/SongDetail";
+import {InMemoryCache} from "apollo-cache-inmemory";
 
 
+const cache = new InMemoryCache({
+    dataIdFromObject: object => object.id
+});
 
-const client = new ApolloClient({});
+const client = new ApolloClient({
+    cache
+});
 
 const Root = () => {
     return (

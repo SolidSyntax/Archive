@@ -4,10 +4,11 @@ const GET_SONG = gql`
   query SongQuery($id: ID!) {
     song(id: $id) {
       id
-      title,
+      title
       lyrics {
-        id,
+        id
         content
+        likes
       }
     }
   }
