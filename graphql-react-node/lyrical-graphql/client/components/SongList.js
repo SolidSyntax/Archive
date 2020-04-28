@@ -31,7 +31,9 @@ function SongList() {
             data.songs.map(({id,title})=> (
                 <li key={id}>
                     <button onClick={() => deleteAndRefresh(id)}>Delete</button>
-                    <span>{title}</span>
+                    <Link to={`/songs/${id}`}>
+                        {title}
+                    </Link>
                 </li>
             ))
         )

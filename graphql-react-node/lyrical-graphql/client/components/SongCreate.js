@@ -18,7 +18,7 @@ function SongCreate() {
     const [title, setTitle] = useState('');
     const [createSong] = useMutation(CREATE_SONG,
         {
-            update(cache, {data: {addSong}}) { // does not seem to work
+            update(cache, {data: {addSong}}) {
                 const {songs} = cache.readQuery({query: GET_SONGS});
                 cache.writeQuery({
                     query: GET_SONGS,
