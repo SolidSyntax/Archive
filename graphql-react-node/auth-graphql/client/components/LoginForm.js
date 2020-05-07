@@ -1,13 +1,32 @@
-import React, {useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import GET_CURRENT_USER from "../queries/CurrentUser";
-import {useMutation} from "@apollo/react-hooks";
+import {useMutation, useQuery} from "@apollo/react-hooks";
 import AuthForm from "./AuthForm";
 import LOGIN from "../mutations/Login";
 import {hashHistory} from "react-router";
 
 function LoginForm() {
+    const {loading, error, data} = useQuery(GET_CURRENT_USER);
     const [loginMutation] = useMutation(LOGIN, {refetchQueries: [{query: GET_CURRENT_USER}]});
     const [errors, setErrors] = useState([]);
+
+
+    const isFirstRender = useRef(true);
+    useEffect(() => {
+        if (isFirstRender.current) {
+            isFirstRender.current = false;
+            return;
+        }
+
+        if (data.user) {
+            hashHistory.push('/dashboard')
+        }
+
+    });
+
+    if (loading) return null;
+    if (error) return `Error! ${error}`;
+
 
     const onSubmit = ({email, password}) => {
         loginMutation({
@@ -15,8 +34,7 @@ function LoginForm() {
                 email,
                 password
             }
-        }).then(() => hashHistory.push(('/')))
-            .catch(reason => {
+        }).catch(reason => {
                 setErrors(reason.graphQLErrors.map(error => error.message));
             });
     }
