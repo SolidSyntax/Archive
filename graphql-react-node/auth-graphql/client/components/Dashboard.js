@@ -1,10 +1,10 @@
 import React from "react";
 import GET_CURRENT_USER from "../queries/CurrentUser";
 import {useQuery} from "@apollo/react-hooks";
-import {requireAuth} from "../hooks/requireAuth";
+import {useRequireAuth} from "../hooks/useRequireAuth";
 
 function Dashboard() {
-    requireAuth();
+    useRequireAuth();
     const {loading, error, data} = useQuery(GET_CURRENT_USER);
 
     if (loading) return null;
