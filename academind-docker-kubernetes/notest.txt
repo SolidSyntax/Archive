@@ -26,3 +26,8 @@ docker image prune -a         // remove all unused images, including tagged imag
 docker image inspect [id]     // image metadata
 
 docker cp dir/. [id]:/dir     // copy files in or out of a running container
+
+docker tag [old] [new]        // rename (retag) an existing image, creates a clone
+docker login                  // login to docker hub
+docker push [user/image:tag]  // push an image to docker hub
+docker pull [user/image:tag]  // download image from docker hub
