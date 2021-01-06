@@ -13,6 +13,14 @@ docker run -d                 // detached mode
 docker run -it                // attached with input and terminal
 docker run --rm               // automaticly remove the container when it finishes
 docker run --name [name]      // attach a name to a container instead of a random generated one
+docker run -p [a]:[b]         // bind port b of the container to a on the localhost
+docker run -v vname:/path     // specify a named volume, store /path in a volume named 'vname', this volume is not removed when the container is removed 
+docker run -v /local:/app     // bind mount: bind the local path /local to the path /app inside of the container. Paths must be absolute. Can also be a file.
+
+
+docker volume ls              // list all current volumes
+docker volume rm [name]       // remove volume
+docker volume prune           // remove all unused volumes
 
 docker attach [id]            // attach to detached console
 docker logs (-f) [id]         // view container logs
