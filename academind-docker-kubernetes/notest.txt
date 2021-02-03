@@ -16,6 +16,12 @@ docker run --name [name]      // attach a name to a container instead of a rando
 docker run -p [a]:[b]         // bind port b of the container to a on the localhost
 docker run -v vname:/path     // specify a named volume, store /path in a volume named 'vname', this volume is not removed when the container is removed 
 docker run -v /local:/app     // bind mount: bind the local path /local to the path /app inside of the container. Paths must be absolute. Can also be a file.
+docker run -v /local:/app:ro  // bind mount: Read Only
+docker run -v /modules        // Anonumous volue, same as adding it in the docker file. When multiple volumes are specified the most specific path wins, preventing 
+                              // directories from getting shadowed by the OS or named volumes
+docker run --env KEY=VALUE    // Specify an environment property to use in a container
+docker run --env-file         // Load environment properties from a local '.env' file
+
 
 
 docker volume ls              // list all current volumes
