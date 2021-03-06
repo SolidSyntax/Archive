@@ -1,0 +1,23 @@
+version: "3.0"
+volumes:
+   data: 
+services:
+  mongodb:
+    image: "mongo"
+    volumes:
+      - data:/data/db
+    # environment:
+      # default syntax
+      # MONGO_INITDB_ROOT_USERNAME: max 
+      # MONGO_INITDB_ROOT_PASSWORD: secret
+      # alternative syntax
+      # - MONGO_INITDB_ROOT_USERNAME=max 
+    # from file
+    env_file: 
+      - ./env/mongo.env
+      # networks:   not needed by defautl, all services in this file are in the same network 
+        # - goals-net
+  # backend:
+    
+  # frontend:
+    

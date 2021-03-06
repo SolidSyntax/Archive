@@ -10,7 +10,10 @@ COPY . .
 
 EXPOSE 80
 
-CMD [ "node", "app.js" ]
+ENV MONGODB_USER=admin
+ENV MONGODB_PASSWORD=admin
+
+CMD [ "npm", "start" ]
 
 # docker build -t goals-node .
-# docker run --name goals-backend -d --rm -p 80:80 goals-node
+# docker run --name goals-backend -v /home/hans/Documents/Archive/academind-docker-kubernetes/multi-01/backend:/app -v logs:/app/logs -v /app/node_modules -d --rm -p 80:80 --network goals-net goals-node -e MONGODB_USER=admin -e MONGODB_PASSWORD=admin 
