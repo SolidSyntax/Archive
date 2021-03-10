@@ -1,6 +1,7 @@
 version: "3.0"
 volumes:
    data: 
+   logs:
 services:
   mongodb:
     image: "mongo"
@@ -17,7 +18,36 @@ services:
       - ./env/mongo.env
       # networks:   not needed by defautl, all services in this file are in the same network 
         # - goals-net
-  # backend:
+  backend:
+    build: ./backend 
+    #build: 
+      #context: ./backend
+      #dockerfile: 'Dockerfile'
+      #args:
+      #  some-arg: 1
+    ports:
+      - '9876:9876'
+    volumes:
+      #- logs:/app/logs
+      - ./backend:/app #paths can be relative in Docker compose
+      - /app/node_modules
+    env_file: 
+      - ./env/backend.env
+    depends_on:
+      - mongodb
+  frontend:
+    build: ./frontend
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./frontend/src:/app/src
+    stdin_open: true   # open input
+    tty: true          # attach terminal
+    depends_on: 
+      - backend
     
-  # frontend:
-    
+  # docker-compose up      to start in attached mode
+  # docker-compose up -d   to start in detached mode
+  
+  # docker-compose down      stop and delete all containers
+  # docker-compose down -v   stop and delete all containers, remove volumes
