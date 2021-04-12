@@ -45,3 +45,14 @@ docker tag [old] [new]        // rename (retag) an existing image, creates a clo
 docker login                  // login to docker hub
 docker push [user/image:tag]  // push an image to docker hub
 docker pull [user/image:tag]  // download image from docker hub
+
+
+// utility containers
+// start a detached interactive node container and execute a command agains it
+docker run -it -d node
+docker ps
+docker exec -it [name] npm init
+
+// start an interactive node container and replace the default startup command
+docker run -it  node npm init
+

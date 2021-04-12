@@ -19,6 +19,7 @@ services:
       # networks:   not needed by defautl, all services in this file are in the same network 
         # - goals-net
   backend:
+    #container_name: a_name
     build: ./backend 
     #build: 
       #context: ./backend
@@ -46,8 +47,9 @@ services:
     depends_on: 
       - backend
     
-  # docker-compose up      to start in attached mode
-  # docker-compose up -d   to start in detached mode
+  # docker-compose up           to start in attached mode
+  # docker-compose up -d        to start in detached mode
+  # docker-compose up --build   force a rebuild
   
   # docker-compose down      stop and delete all containers
   # docker-compose down -v   stop and delete all containers, remove volumes

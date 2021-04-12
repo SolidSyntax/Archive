@@ -1,0 +1,12 @@
+version: "3.0"
+services:
+  npm:
+    build: ./
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./:/app
+
+
+  # docker-compose run --rm npm init        --> to start a service with specified command, and remove afterwards
+
